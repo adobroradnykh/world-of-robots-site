@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World Of Robots — онлайн-битвы боевых роботов</title>
+  <meta name="description" content="World Of Robots — бесплатный онлайн-шутер о боевых роботах. 28 роботов трёх фракций, более 100 видов оружия и модулей, тактические PvP-бои, кланы и игра с друзьями.">
+  <meta name="theme-color" content="#070b14">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="World Of Robots">
+  <meta property="og:description" content="Огромные роботы. Мощный огонь. Онлайн PvP-бои на Android, iOS и в Steam.">
+  <meta property="og:image" content="assets/img/keyart.jpg">
+  <link rel="icon" href="assets/img/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#top" class="logo" aria-label="World Of Robots">
+      <img src="assets/img/icon-192.png" alt="" width="40" height="40">
+      <span class="logo__text">World<b>Of</b>Robots</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#about" data-i18n="nav.about">Об игре</a>
+      <a href="#hangar" data-i18n="nav.hangar">Ангар</a>
+      <a href="database.html" data-i18n="nav.db">База данных</a>
+      <a href="#gallery" data-i18n="nav.gallery">Скриншоты</a>
+      <a href="#community" data-i18n="nav.community">Сообщество</a>
+      <a href="#download" class="btn btn--primary btn--sm nav__cta" data-i18n="cta.play">Играть бесплатно</a>
+    </nav>
+
+    <div class="header__tools">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru" class="is-active">RU</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <picture class="hero__bg">
+      <source media="(max-width: 700px)" srcset="assets/img/hero-m.jpg">
+      <img src="assets/img/hero.jpg" alt="" fetchpriority="high">
+    </picture>
+    <div class="hero__shade"></div>
+    <canvas class="hero__sparks" id="sparks" aria-hidden="true"></canvas>
+
+    <div class="container hero__content">
+      <p class="eyebrow reveal"><span class="dot"></span><span data-i18n="hero.eyebrow">Бесплатная онлайн-игра · Android · iOS · ПК</span></p>
+      <h1 class="hero__title reveal">
+        <span class="hero__title-top">World Of</span>
+        <span class="hero__title-main">Robots</span>
+      </h1>
+      <p class="hero__slogan reveal">
+        <span data-i18n="hero.slogan1">Огромные роботы.</span>
+        <em data-i18n="hero.slogan2">Мощный огонь.</em>
+      </p>
+      <p class="hero__lead reveal" data-i18n="hero.lead">Собери свою боевую машину, выбери оружие и веди команду к победе в динамичных PvP-сражениях в реальном времени.</p>
+
+      <div class="hero__actions reveal">
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.sgs.war.robots" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8 13.5 12l-9.9 10.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1Zm11.1 11.4 2.6 2.6-11.7 6.7 9.1-9.3Zm3.7-3.6 3 1.7c.8.5.8 1.6 0 2.1l-3 1.7-2.8-2.8 2.8-2.7ZM5.6 1.5l11.7 6.7-2.6 2.6-9.1-9.3Z"/></svg>
+          <span><small data-i18n="store.gp.small">Доступно в</small>Google Play</span>
+        </a>
+        <a class="store" href="https://apps.apple.com/app/id1559637955" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.7c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.3-.1 1.7-.8 3.2-.8s1.9.8 3.3.8c1.4 0 2.2-1.2 3-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.6-1-2.6-4ZM14 5.3c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></svg>
+          <span><small data-i18n="store.as.small">Загрузите в</small>App Store</span>
+        </a>
+        <a class="store" href="https://store.steampowered.com/app/576430/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.7 0 .5 4.9 0 11l6.4 2.7c.6-.4 1.2-.6 2-.6h.2l2.9-4.1v-.1c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5-2 4.5-4.5 4.5h-.1l-4.1 2.9v.2c0 1.9-1.5 3.4-3.4 3.4-1.6 0-3-1.2-3.3-2.7L.4 15.4C1.8 20.4 6.5 24 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0ZM7.5 18.2l-1.5-.6c.3.6.7 1 1.3 1.3 1.3.5 2.8-.1 3.3-1.4.3-.6.3-1.3 0-1.9-.3-.6-.7-1.1-1.4-1.4-.6-.3-1.3-.3-1.9 0l1.5.6c1 .4 1.4 1.5 1 2.4-.3 1-1.4 1.4-2.3 1Zm11.4-9.3c0-1.7-1.4-3-3-3s-3 1.4-3 3 1.4 3 3 3 3-1.4 3-3Zm-5.3 0c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3Z"/></svg>
+          <span><small data-i18n="store.st.small">Играйте на ПК в</small>Steam</span>
+        </a>
+      </div>
+    </div>
+
+    <a href="#stats" class="hero__scroll" aria-label="Scroll"><span></span></a>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats" id="stats">
+    <div class="container stats__grid">
+      <div class="stat reveal"><b data-count="28">28</b><span data-i18n="stats.robots">боевых роботов</span></div>
+      <div class="stat reveal"><b data-count="3">3</b><span data-i18n="stats.factions">фракции: СССР, США, Япония</span></div>
+      <div class="stat reveal"><b data-count="100" data-suffix="+">100+</b><span data-i18n="stats.weapons">видов оружия и модулей</span></div>
+      <div class="stat reveal"><b>PvP</b><span data-i18n="stats.pvp">онлайн-бои в реальном времени</span></div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="section features" id="about">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="kicker" data-i18n="about.kicker">Об игре</p>
+        <h2 data-i18n="about.title">Твой робот. Твой стиль. Твоя победа.</h2>
+        <p data-i18n="about.lead">World Of Robots — это мобильный шутер о многотонных боевых машинах. Выбирай фракцию, прокачивай технику и сражайся с игроками со всего мира.</p>
+      </header>
+
+      <div class="features__grid">
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/></svg></div>
+          <h3 data-i18n="f1.t">Онлайн PvP-бои</h3>
+          <p data-i18n="f1.d">Командные сражения с живыми игроками в реальном времени. Каждая битва — новая история.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24"><path d="M4 20 12 4l8 16"/><path d="M7.5 13h9"/><circle cx="12" cy="4" r="1.5"/></svg></div>
+          <h3 data-i18n="f2.t">Тактика и захват точек</h3>
+          <p data-i18n="f2.d">Удерживай ключевые точки A, B и C, используй укрытия и координируй атаки — побеждает не сильнейший, а умнейший.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24"><path d="M3 6h4M11 6h10M3 12h10M17 12h4M3 18h6M13 18h8"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="11" cy="18" r="2"/></svg></div>
+          <h3 data-i18n="f3.t">Дерево технологий</h3>
+          <p data-i18n="f3.d">Открывай новых роботов и оружие трёх фракций, улучшай характеристики и находи свою идеальную сборку.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 1.8-1.5H17a4 4 0 0 0 4-4c0-4.7-4-8.5-9-8.5Z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7.5" r="1.2"/></svg></div>
+          <h3 data-i18n="f4.t">Кастомизация</h3>
+          <p data-i18n="f4.d">Уникальные скины и раскраски, десятки комбинаций вооружения. Твой робот должен выглядеть так же грозно, как стреляет.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/><path d="M12 13v4l-2 2"/></svg></div>
+          <h3 data-i18n="f5.t">Пилоты и импланты</h3>
+          <p data-i18n="f5.d">Нанимай пилотов, устанавливай импланты и модули: щиты, дроны, телепорты и ремонтные системы меняют ход боя.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 15.5c.9-.6 1.9-1 3-1 2.8 0 5 2.2 5 5"/></svg></div>
+          <h3 data-i18n="f6.t">Кланы и друзья</h3>
+          <p data-i18n="f6.d">Вступай в клан, общайся в чате, собирай отряд с друзьями и поднимайся в рейтинге вместе.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HANGAR ============ -->
+  <section class="section hangar" id="hangar">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="kicker" data-i18n="hangar.kicker">Ангар</p>
+        <h2 data-i18n="hangar.title">Выбери свою боевую машину</h2>
+        <p data-i18n="hangar.lead">Лёгкие разведчики, универсальные штурмовики и тяжёлые крепости. Характеристики взяты прямо из игры.</p>
+      </header>
+
+      <div class="hangar__tabs reveal" role="tablist">
+        <button type="button" role="tab" data-faction="1" class="is-active"><i class="flag flag--ussr"></i><span data-i18n="fac.1">СССР</span></button>
+        <button type="button" role="tab" data-faction="2"><i class="flag flag--usa"></i><span data-i18n="fac.2">США</span></button>
+        <button type="button" role="tab" data-faction="3"><i class="flag flag--jp"></i><span data-i18n="fac.3">Япония</span></button>
+      </div>
+
+      <div class="hangar__body reveal">
+        <aside class="hangar__list" id="robotList" aria-label="Robots"></aside>
+
+        <div class="robot" id="robotCard" aria-live="polite">
+          <div class="robot__media">
+            <img src="assets/img/lineup.jpg" alt="" loading="lazy">
+            <span class="robot__tier" id="rTier"></span>
+          </div>
+          <div class="robot__info">
+            <p class="robot__faction" id="rFaction"></p>
+            <h3 class="robot__name" id="rName"></h3>
+            <p class="robot__class" id="rClass"></p>
+            <div class="bars">
+              <div class="bar"><span data-i18n="stat.hp">Прочность</span><b id="rHp"></b><i><em id="rHpBar"></em></i></div>
+              <div class="bar"><span data-i18n="stat.speed">Скорость</span><b id="rSpeed"></b><i><em id="rSpeedBar"></em></i></div>
+              <div class="bar"><span data-i18n="stat.load">Грузоподъёмность</span><b id="rLoad"></b><i><em id="rLoadBar"></em></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BAND ============ -->
+  <section class="band" aria-hidden="false">
+    <div class="band__bg" style="background-image:url('assets/img/battle.jpg')"></div>
+    <div class="container band__content reveal">
+      <h2><span data-i18n="band.1">Готовься</span> <em data-i18n="band.2">к битве!</em></h2>
+      <p data-i18n="band.lead">Пулемёты, ракеты, лазеры, рельсотроны, плазма и огнемёты — комбинируй оружие под свой стиль боя.</p>
+    </div>
+  </section>
+
+  <!-- ============ DATABASE TEASER ============ -->
+  <section class="section dbt" id="database">
+    <div class="container dbt__inner">
+      <div class="dbt__text reveal">
+        <p class="kicker" data-i18n="dbt.kicker">База данных</p>
+        <h2 data-i18n="dbt.title">Арсенал и пилоты</h2>
+        <p data-i18n="dbt.lead">Всё оружие, модули, дроны и пилоты игры с характеристиками на каждом уровне улучшения. Цифры взяты прямо из игровых данных.</p>
+        <ul class="dbt__facts">
+          <li><b>99</b><span data-i18n="dbt.w">оружия, модулей и дронов</span></li>
+          <li><b>36</b><span data-i18n="dbt.p">пилотов с уровнями прокачки</span></li>
+          <li><b>18</b><span data-i18n="dbt.u">уровней улучшения у оружия</span></li>
+        </ul>
+        <a class="btn btn--primary" href="database.html" data-i18n="dbt.cta">Открыть базу данных</a>
+      </div>
+      <a class="dbt__icons reveal" href="database.html" aria-hidden="true" tabindex="-1">
+        <img src="assets/img/weapons/1.png" alt="" loading="lazy">
+        <img src="assets/img/weapons/2.png" alt="" loading="lazy">
+        <img src="assets/img/pilots/1018.png" alt="" loading="lazy" class="dbt__pilot">
+        <img src="assets/img/weapons/45.png" alt="" loading="lazy">
+        <img src="assets/img/weapons/74.png" alt="" loading="lazy">
+        <img src="assets/img/weapons/26.png" alt="" loading="lazy">
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="kicker" data-i18n="gallery.kicker">Скриншоты</p>
+        <h2 data-i18n="gallery.title">Посмотри на игру в деле</h2>
+      </header>
+
+      <div class="slider reveal">
+        <div class="slider__main">
+          <button type="button" class="slider__view" id="sliderView" aria-label="Open">
+            <img id="sliderImg" src="assets/img/shot-ru-1.jpg" alt="" width="1600" height="735">
+          </button>
+          <button type="button" class="slider__arrow slider__arrow--prev" id="prev" aria-label="Previous">‹</button>
+          <button type="button" class="slider__arrow slider__arrow--next" id="next" aria-label="Next">›</button>
+        </div>
+        <div class="slider__thumbs" id="thumbs"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOWNLOAD ============ -->
+  <section class="section download" id="download">
+    <div class="container download__inner">
+      <div class="download__poster reveal">
+        <img src="assets/img/poster.jpg" alt="World Of Robots" loading="lazy" width="748" height="896">
+      </div>
+      <div class="download__text reveal">
+        <p class="kicker" data-i18n="dl.kicker">Скачать</p>
+        <h2 data-i18n="dl.title">Вступай в битву бесплатно</h2>
+        <p data-i18n="dl.lead">World Of Robots доступна на смартфонах, планшетах и ПК в Steam. Установи игру, получи стартового робота и выходи на арену уже через минуту.</p>
+        <ul class="checks">
+          <li data-i18n="dl.c1">Бесплатно для скачивания</li>
+          <li data-i18n="dl.c2">Сражения с реальными игроками</li>
+          <li data-i18n="dl.c3">Регулярные обновления: новые роботы, оружие и карты</li>
+        </ul>
+        <div class="hero__actions">
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.sgs.war.robots" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8 13.5 12l-9.9 10.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1Zm11.1 11.4 2.6 2.6-11.7 6.7 9.1-9.3Zm3.7-3.6 3 1.7c.8.5.8 1.6 0 2.1l-3 1.7-2.8-2.8 2.8-2.7ZM5.6 1.5l11.7 6.7-2.6 2.6-9.1-9.3Z"/></svg>
+            <span><small data-i18n="store.gp.small">Доступно в</small>Google Play</span>
+          </a>
+          <a class="store" href="https://apps.apple.com/app/id1559637955" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.7c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.3-.1 1.7-.8 3.2-.8s1.9.8 3.3.8c1.4 0 2.2-1.2 3-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.6-1-2.6-4ZM14 5.3c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></svg>
+            <span><small data-i18n="store.as.small">Загрузите в</small>App Store</span>
+          </a>
+        <a class="store" href="https://store.steampowered.com/app/576430/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.7 0 .5 4.9 0 11l6.4 2.7c.6-.4 1.2-.6 2-.6h.2l2.9-4.1v-.1c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5-2 4.5-4.5 4.5h-.1l-4.1 2.9v.2c0 1.9-1.5 3.4-3.4 3.4-1.6 0-3-1.2-3.3-2.7L.4 15.4C1.8 20.4 6.5 24 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0ZM7.5 18.2l-1.5-.6c.3.6.7 1 1.3 1.3 1.3.5 2.8-.1 3.3-1.4.3-.6.3-1.3 0-1.9-.3-.6-.7-1.1-1.4-1.4-.6-.3-1.3-.3-1.9 0l1.5.6c1 .4 1.4 1.5 1 2.4-.3 1-1.4 1.4-2.3 1Zm11.4-9.3c0-1.7-1.4-3-3-3s-3 1.4-3 3 1.4 3 3 3 3-1.4 3-3Zm-5.3 0c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3Z"/></svg>
+          <span><small data-i18n="store.st.small">Играйте на ПК в</small>Steam</span>
+        </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMMUNITY ============ -->
+  <section class="section community" id="community">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="kicker" data-i18n="com.kicker">Сообщество</p>
+        <h2 data-i18n="com.title">Присоединяйся к пилотам</h2>
+        <p data-i18n="com.lead">Новости обновлений, турниры, гайды и общение с разработчиками.</p>
+      </header>
+      <div class="community__grid">
+        <a class="social social--discord reveal" href="https://discord.gg/FkpRNCTN8Z" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.3 18.3 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.7.2 18.2a19.9 19.9 0 0 0 6 3l1.3-2a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.1 0l.5.4c-.6.4-1.3.7-2 1l1.3 2a19.8 19.8 0 0 0 6-3c.5-5.2-.9-9.8-3.6-13.8ZM8 15.4c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg>
+          <b>Discord</b>
+          <span data-i18n="com.discord">Чат игроков и разработчиков</span>
+        </a>
+        <a class="social social--yt reveal" href="https://www.youtube.com/channel/UCAxxXdSZmry81ENwgov2SuA" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+          <b>YouTube</b>
+          <span data-i18n="com.yt">Трейлеры и геймплей</span>
+        </a>
+        <a class="social social--vk reveal" href="https://vk.com/club74956391" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.8 18.5C5.6 18.5 1.5 13.6 1.3 5.4h3.6c.1 6 2.8 8.5 4.9 9V5.4h3.4v5.2c2.1-.2 4.3-2.6 5-5.2h3.4a10 10 0 0 1-4.6 6.5 10.4 10.4 0 0 1 5.4 6.6h-3.7a6.5 6.5 0 0 0-5.5-4.7v4.7h-.4Z"/></svg>
+          <b>VK</b>
+          <span data-i18n="com.vk">Новости и конкурсы</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#top" class="logo">
+      <img src="assets/img/icon-192.png" alt="" width="36" height="36">
+      <span class="logo__text">World<b>Of</b>Robots</span>
+    </a>
+    <nav class="footer__links">
+      <a href="https://play.google.com/store/apps/developer?id=Super+Games+Studio" target="_blank" rel="noopener" data-i18n="footer.games">Другие игры студии</a>
+      <a href="#download" data-i18n="cta.play">Играть бесплатно</a>
+    </nav>
+    <p class="footer__copy">© <span id="year">2026</span> Super Games Studio. <span data-i18n="footer.rights">Все права защищены.</span></p>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" class="lightbox__close" id="lbClose" aria-label="Close">×</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

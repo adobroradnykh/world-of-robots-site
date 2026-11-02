@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>База данных — World Of Robots</title>
+  <meta name="description" content="База данных World Of Robots: оружие, модули, дроны и пилоты с характеристиками на каждом уровне улучшения.">
+  <meta name="theme-color" content="#070b14">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="База данных World Of Robots">
+  <meta property="og:description" content="Огромные роботы. Мощный огонь. Онлайн PvP-бои на Android, iOS и в Steam.">
+  <meta property="og:image" content="assets/img/keyart.jpg">
+  <link rel="icon" href="assets/img/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="db">
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo" aria-label="World Of Robots">
+      <img src="assets/img/icon-192.png" alt="" width="40" height="40">
+      <span class="logo__text">World<b>Of</b>Robots</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="index.html#about" data-i18n="nav.about">Об игре</a>
+      <a href="index.html#hangar" data-i18n="nav.hangar">Ангар</a>
+      <a href="#arsenal" data-i18n="db.toArs">Арсенал</a>
+      <a href="#pilots" data-i18n="db.toPil">Пилоты</a>
+      <a href="index.html#gallery" data-i18n="nav.gallery">Скриншоты</a>
+      <a href="index.html#community" data-i18n="nav.community">Сообщество</a>
+      <a href="index.html#download" class="btn btn--primary btn--sm nav__cta" data-i18n="cta.play">Играть бесплатно</a>
+    </nav>
+
+    <div class="header__tools">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru" class="is-active">RU</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ PAGE HEAD ============ -->
+  <section class="pagehead">
+    <div class="container">
+      <p class="kicker" data-i18n="db.kicker">База данных</p>
+      <h1 data-i18n="db.title">Арсенал и пилоты</h1>
+      <p class="pagehead__lead" data-i18n="db.lead">Всё оружие, модули, дроны и пилоты игры с характеристиками на каждом уровне улучшения. Цифры взяты прямо из игровых данных.</p>
+      <nav class="pagehead__links">
+        <a href="#arsenal" class="chip" data-i18n="db.toArs">Арсенал</a>
+        <a href="#pilots" class="chip" data-i18n="db.toPil">Пилоты</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ ARSENAL ============ -->
+  <section class="section arsenal" id="arsenal">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="kicker" data-i18n="ars.kicker">Арсенал</p>
+        <h2 data-i18n="ars.title">Оружие, модули и дроны</h2>
+        <p data-i18n="ars.lead">Нажми на карточку, чтобы увидеть характеристики и их рост на каждом уровне улучшения.</p>
+      </header>
+
+      <div class="toolbar reveal">
+        <div class="seg" role="tablist" id="arsCat">
+          <button type="button" data-cat="all" class="is-active" data-i18n="ars.all">Всё</button>
+          <button type="button" data-cat="weapon" data-i18n="ars.weapon">Оружие</button>
+          <button type="button" data-cat="module" data-i18n="ars.module">Модули</button>
+          <button type="button" data-cat="drone" data-i18n="ars.drone">Дроны</button>
+        </div>
+        <div class="toolbar__row">
+          <label class="field field--search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input type="search" id="arsSearch" placeholder="Поиск по названию" data-i18n-ph="ars.search" autocomplete="off">
+          </label>
+          <label class="field">
+            <span class="sr-only" data-i18n="ars.faction">Фракция</span>
+            <select id="arsFaction">
+              <option value="0" data-i18n="ars.allFactions">Все фракции</option>
+              <option value="1" data-i18n="fac.1">СССР</option>
+              <option value="2" data-i18n="fac.2">США</option>
+              <option value="3" data-i18n="fac.3">Япония</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="sr-only" data-i18n="ars.class">Класс</span>
+            <select id="arsClass"></select>
+          </label>
+          <label class="field">
+            <span class="sr-only" data-i18n="ars.sort">Сортировка</span>
+            <select id="arsSort">
+              <option value="level" data-i18n="sort.level">По уровню доступа</option>
+              <option value="power" data-i18n="sort.power">По урону и мощности</option>
+              <option value="upgrades" data-i18n="sort.upgrades">По числу улучшений</option>
+              <option value="name" data-i18n="sort.name">По названию</option>
+            </select>
+          </label>
+        </div>
+        <p class="toolbar__count" id="arsCount" aria-live="polite"></p>
+      </div>
+
+      <div class="items" id="arsGrid"></div>
+      <p class="items__empty" id="arsEmpty" hidden data-i18n="ars.empty">Ничего не найдено. Попробуй изменить фильтры.</p>
+    </div>
+  </section>
+
+  <!-- ============ PILOTS ============ -->
+  <section class="section pilots" id="pilots">
+    <div class="container">
+      <header class="section__head reveal">
+        <p class="kicker" data-i18n="pil.kicker">Пилоты</p>
+        <h2 data-i18n="pil.title">Экипаж решает исход боя</h2>
+        <p data-i18n="pil.lead">Каждый пилот повышает прочность робота и усиливает свой тип вооружения. Бонусы растут по мере прокачки пилота.</p>
+      </header>
+
+      <div class="hangar__tabs reveal" role="tablist" id="pilFaction">
+        <button type="button" role="tab" data-faction="1" class="is-active"><i class="flag flag--ussr"></i><span data-i18n="fac.1">СССР</span></button>
+        <button type="button" role="tab" data-faction="2"><i class="flag flag--usa"></i><span data-i18n="fac.2">США</span></button>
+        <button type="button" role="tab" data-faction="3"><i class="flag flag--jp"></i><span data-i18n="fac.3">Япония</span></button>
+      </div>
+
+      <div class="crew" id="pilGrid"></div>
+      <p class="crew__note" id="pilNote"></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="index.html" class="logo">
+      <img src="assets/img/icon-192.png" alt="" width="36" height="36">
+      <span class="logo__text">World<b>Of</b>Robots</span>
+    </a>
+    <nav class="footer__links">
+      <a href="https://play.google.com/store/apps/developer?id=Super+Games+Studio" target="_blank" rel="noopener" data-i18n="footer.games">Другие игры студии</a>
+      <a href="index.html#download" data-i18n="cta.play">Играть бесплатно</a>
+    </nav>
+    <p class="footer__copy">© <span id="year">2026</span> Super Games Studio. <span data-i18n="footer.rights">Все права защищены.</span></p>
+  </div>
+</footer>
+
+<!-- ============ DETAILS (weapon / pilot) ============ -->
+<div class="modal" id="itemModal" hidden role="dialog" aria-modal="true" aria-labelledby="imName">
+  <div class="modal__box">
+    <button type="button" class="modal__close" id="imClose" aria-label="Close">×</button>
+    <div class="modal__head">
+      <div class="modal__icon"><img id="imIcon" src="assets/img/icon-192.png" alt=""></div>
+      <div>
+        <p class="modal__meta" id="imMeta"></p>
+        <h3 id="imName"></h3>
+        <p class="modal__badges" id="imBadges"></p>
+      </div>
+    </div>
+    <p class="modal__desc" id="imDesc"></p>
+    <div class="up" id="imUp">
+      <label class="up__head" for="imRange">
+        <span id="imUpTitle">Улучшение</span>
+        <b><span id="imLevel">0</span> <small id="imLevelMax"></small></b>
+      </label>
+      <input type="range" id="imRange" min="0" max="1" step="1" value="0">
+    </div>
+    <p class="modal__note" id="imNote"></p>
+    <dl class="specs" id="imSpecs"></dl>
+    <div class="levels" id="imTableWrap">
+      <h4 id="imTableTitle"></h4>
+      <div class="levels__scroll"><table id="imTable"></table></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/data/arsenal.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/database.js"></script>
+</body>
+</html>
